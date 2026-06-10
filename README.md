@@ -1,6 +1,7 @@
 # Bursa Bites — Bursa Malaysia Stock Analysis
 
 SQITK 3073 · Business Analytic Programming · Individual Project
+
 For Python code (answer for report) at backend/server.py
 
 Beginner-friendly dashboard that analyses 5 Bursa Malaysia stocks (KPJ Healthcare, Inari Amertron, CIMB Group, Genting Malaysia, Sunway) using **yfinance** for live data, **pandas** for analysis (slicing + groupby), and **matplotlib + Recharts** for visualisation. Includes a downloadable PDF report and a multi-period selector (1W / 1M / 3M / 6M / 1Y).
