@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----- Bursa Malaysia Stock Analysis: Organic & Earthy Light Theme ----- */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+    --bg: #fdfbf7;
+    --surface: #ffffff;
+    --primary: #2c4c3b;
+    --primary-hover: #3a634d;
+    --positive: #4a7c59;
+    --positive-bg: #edf2ee;
+    --negative: #d96c5b;
+    --negative-bg: #fceeee;
+    --text-primary: #1c2621;
+    --text-secondary: #5a6d63;
+    --border: #e6e9e6;
+    --label: #8a9a86;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+    font-family: "Outfit", "IBM Plex Sans", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.label-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--label);
+}
+
+/* shadcn baseline tokens — kept so any ui/* components stay consistent */
+@layer base {
+    :root {
+        --background: 38 50% 98%;
+        --foreground: 150 16% 13%;
+        --card: 0 0% 100%;
+        --card-foreground: 150 16% 13%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 150 16% 13%;
+        --primary: 144 26% 24%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 38 50% 96%;
+        --secondary-foreground: 150 16% 13%;
+        --muted: 38 30% 95%;
+        --muted-foreground: 150 8% 39%;
+        --accent: 138 25% 38%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 8 60% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 138 8% 91%;
+        --input: 138 8% 91%;
+        --ring: 144 26% 24%;
+        --radius: 1rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply text-foreground;
+        background: var(--bg);
+    }
+}
+
+/* Selection style */
+::selection {
+    background: #2c4c3b;
+    color: #fdfbf7;
+}
+
+/* Grain texture overlay for organic feel */
+.grain::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.17  0 0 0 0 0.3  0 0 0 0 0.23  0 0 0 0.07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #d4ddd5;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b8c5b9;
+}
+
+/* Reveal animation */
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.reveal {
+    animation: reveal-up 0.7s ease both;
+}
+.reveal-delay-1 {
+    animation-delay: 0.1s;
+}
+.reveal-delay-2 {
+    animation-delay: 0.2s;
+}
+.reveal-delay-3 {
+    animation-delay: 0.3s;
+}
+.reveal-delay-4 {
+    animation-delay: 0.4s;
+}
+
+/* Soft card */
+.card-soft {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(44, 76, 59, 0.04);
+    border-radius: 1.25rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-soft:hover {
+    box-shadow: 0 10px 32px rgba(44, 76, 59, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Pill button */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: #fdfbf7;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: background 0.25s ease, transform 0.25s ease;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: background 0.25s ease;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    background: #f4f1ea;
+}
+
+/* Badge */
+.badge-pos {
+    background: var(--positive-bg);
+    color: var(--positive);
+    padding: 0.25rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.badge-neg {
+    background: var(--negative-bg);
+    color: var(--negative);
+    padding: 0.25rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.badge-neutral {
+    background: #f0ece4;
+    color: #5a6d63;
+    padding: 0.25rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Section divider */
+.section-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
